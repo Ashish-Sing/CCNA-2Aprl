@@ -1,0 +1,37 @@
+DNS( domain name server)
+=========================
+
+DNS is like a phoebook. it resolve host IP to domain name. 
+DNS lookup - it maintain cache locally in the qureying or centralized server. 
+
+Take a server in packet tracer and on the DNS service
+add hostname and ip address as per n/w
+
+
+R1#ping R2
+Translating "R2"...domain server (255.255.255.255)
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.10.20.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/3/13 ms
+
+
+#issue
+unable to ping R1
+reason- wrong dns server ip meantioned so first we have to remove the exiting dns ip config and replace it with correct ip
+
+
+
+R3(config)#no ip name-server 10.10.20.1
+R3(config)#ip name-server 10.10.10.10
+
+If you check the running configuration then you check the correct intry.
+
+ip name-server 10.10.10.10
+
+
+pipe/grep command--output of leftside pipe symbol is input of right side of pipe symbol
+R3#show running-config | include name
+hostname R3
+ip name-server 10.10.10.10
+R3#

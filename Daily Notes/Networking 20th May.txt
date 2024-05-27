@@ -1,0 +1,89 @@
+Router Basic
+=============
+
+harware:-
+power supply 
+Flash-- Cisco IOS -->it same is OS but functionality of IOS is designed to manage n/w
+Boot Ram --similar as motheboard. it task is to put IOS from Flash to RAM
+Ram --running configuration are managed by RAM. it's a volatile. it means whenever you power off the device the all the information in RAM is gone/deleted
+CPU -- responsible for processing function of router
+
+
+
+Ports on Router
+==============
+
+serial port-DB9 port to connect with your machine/pc/laptop
+console port --new divice first time configuaration
+             --configure the router directly, where it's physcially located
+			 --password recovery can be using console port
+			 
+fast eth port --used for routing n/w
+
+
+How to access the router
+=======================
+ power on the router --> connect raj45 in router console port -->other end of the cable usb connect to your laptop --> now check you com port in laptop device manager -->use putty and select serial option and slect the correct com port
+ 
+ you have done the rquired configuration like assign hostname and IP to the router etc..
+ 
+ 
+ now you can access the router remotly through telnet and ssh
+ telnet and ssh are used for virtual/remotly access the terminal
+ 
+ telnet - is used to connect the router remotly but it's not secure and not being used in enterpise networks
+ ssh -- is used to connect the router remotly with securely  
+ 
+ 
+ IOS
+ =====
+ 
+ Router> -->user mode, when ever you acceesss first time you land on user mode
+ Router# -->privilege mode/enable mode -->here we can seen mostly the configuration
+ Router(config)#  -->configuaration mode,  all the configuration is done at configuration mode  -->
+ 
+ exit to go one step back.
+ 
+Router>enable 
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+
+R1#show running-config 
+Building configuration...
+
+Current configuration : 604 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+ --More-- 
+ 
+ 
+ 
+R1#copy running-config st
+R1#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+ 
